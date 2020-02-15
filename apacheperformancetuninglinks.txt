@@ -1,0 +1,51 @@
+APACHE WEBSERVER 
+https://bobcares.com/blog/speed-up-apache/
+
+
+https://www.tecmint.com/apache-performance-tuning/
+
+
+
+
+
+
+POINTS:  PERFORMACE TUNING FOIR APACHE2
+1.ALAWYS KEEP APACHE TO LATEST VERSION
+
+httpd -v
+
+apache2 -v
+
+yum update -y
+
+2. if ur using kernal 0lder than 2.4 upgrade it
+
+unmae -r  --latest stable kernal 4.3 
+
+3.choose the mpm (multiprocesisng model) that works best for your case.
+
+httpd  -v
+
+server mpm : prefork
+
+vi /etc/httpd/conf/httpd.conf
+
+vi /etc/apach2/apache2.conf
+
+<IFMODULE MPM_EVENT_MODULE>
+STARTSEREVR 3
+MINSPARE THREADS 25
+MAXSPARE THREADS  75
+THREADLIMIT  64
+THREADPOERCHILD 25
+MAXREQUESTWORKERS 30
+MAXCONNECTIONSPERCHILD 1000
+</ifmodule>
+
+
+a2enmod module_name
+
+apache
+
+
+
